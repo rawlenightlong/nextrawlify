@@ -3,6 +3,11 @@ import SpotifyWebApi from "spotify-web-api-node"
 import Auth from './Auth'
 import {useEffect, useState, useContext} from 'react'
 import { stateContext } from '@/pages'
+import axios from 'axios'
+import Playlist from './Playlist'
+import TrackSearchResult from './TrackSearchResult'
+import Player from './Player'
+
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
 
@@ -12,13 +17,21 @@ const spotifyApi = new SpotifyWebApi({
 })
 
 
-export default function Dashboard({code}) {
 
+export default function Dashboard({code, playlist}) {
+    // Receieve the access token from Spotify
     const accessToken = Auth(code)
-    const states = useContext(stateContext)
-    const {currentUser, setCurrentUser} = useContext(stateContext)
-    console.log(states)
 
+    // Reset access token with reset token 
+    useEffect(() => {
+        if (!accessToken) return
+        spotifyApi.setAccessToken(accessToken)
+    }, [accessToken])
+
+    // Destructure state variables / functions from Context Provider
+    const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, setPlaylist, search, searchResults, setSearchResults, song, setSong, play, setPlay} = useContext(stateContext)
+ 
+    // Fetch current user to render current user's playlist
     async function fetchUser(){
         if (!accessToken) return
         let response = await fetch("https://api.spotify.com/v1/me", {
@@ -29,13 +42,86 @@ export default function Dashboard({code}) {
         console.log(currentUser)
     }
 
+    // Fetch current user whenever the access token or currentUser state changes
     useEffect(() => {
         fetchUser()
     }, [accessToken, currentUser])
 
+    // Set playingTrack to empty object at page load
+    // useEffect(() => {
+    //     setPlayingTrack({
+    //         username: "",
+    //         title: "",
+    //         artist: "",
+    //         url: ""
+    //     })
+    // }, [])
+
+    // Set the playingTrack and clear the search
+    function chooseTrack(track){
+        setPlayingTrack(track)
+        setSearch("")
+    }
+
+    // Song search
+    useEffect(() => {
+        if (!search) return setSearchResults([])
+        if (!accessToken) return
+
+        let cancel = false
+
+        spotifyApi.searchTracks(search).then(res => {
+            if (cancel) return
+            setSearchResults(res.body.tracks.items.map(track => {
+                const smallestAlbumImage = track.album.images.reduce((smallest, image) => {
+                    if (image.height < smallest.height) return image
+                    return smallest
+                }, track.album.images[0])
+                return {
+                    artist: track.artists[0].name,
+                    title: track.name,
+                    uri: track.uri,
+                    albumUrl: smallestAlbumImage.url
+                }
+            }))
+        })
+
+        return () => cancel = true
+    }, [search, accessToken])
+
+    // CREATE FUNCTION
+    async function addSong(){
+        axios.post("https://rawlifyplaylist.onrender.com/spotsongs", {
+            username: currentUser,
+            title: playingTrack.title, 
+            artist: playingTrack.artist,
+            url: playingTrack.uri
+        })
+    }
+
+    // Render player if a song is chosen
+    const renderPlayer = () => {
+        return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : null} play={play} setPlay={setPlay}/></div>
+    }
+
+
   return (
-    <div>
-      This is the dashboard
+    <div className="page">
+        <Playlist playlist={playlist} addSong={addSong}/>
+        <div className="spotify">
+            <form>
+                <input type="search" placeholder="search songs" value={search} onChange={e => setSearch(e.target.value)} />
+                <div className='trackResults'>
+                    {searchResults.map(track => (
+                        <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
+                    ))}
+                </div>
+            </form>
+            <div>
+                {playingTrack || song ? renderPlayer() : null}
+            </div>
+        </div>
     </div>
   )
 }
+

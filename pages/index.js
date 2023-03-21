@@ -6,11 +6,16 @@ import { createContext, useState } from "react";
 
 export const stateContext = createContext()
 
-export default function Home() {
+export default function Home({playlist}) {
 
   const [search, setSearch] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [playingTrack, setPlayingTrack] = useState()
+  const [playingTrack, setPlayingTrack] = useState({
+    username: "",
+    title: '',
+    artist: '',
+    url: ''
+  })
   const [currentUser, setCurrentUser] = useState(null)
   const [song, setSong] = useState(null)
   const [showEdit, setShowEdit] = useState(false)
@@ -45,7 +50,16 @@ export default function Home() {
         setSongInfo: setSongInfo
       }
     }>
-      {code ? <Dashboard code={code}/> : <Login/>}
+      {code ? <Dashboard code={code} playlist={playlist}/> : <Login/>}
       </stateContext.Provider>
   )
+}
+export async function getServerSideProps(){
+  const response = await fetch("https://rawlifyplaylist.onrender.com/spotsongs")
+  const data = await response.json()
+  return {
+    props: {
+      playlist: data
+    }
+  }
 }
