@@ -4,9 +4,11 @@ import { Inter } from 'next/font/google'
 import {useSearchParams} from "next/navigation"
 import { createContext, useState } from "react";
 
+
 export const stateContext = createContext()
 
 export default function Home({playlist}) {
+
 
   const [search, setSearch] = useState("")
   const [searchResults, setSearchResults] = useState([])
@@ -14,7 +16,7 @@ export default function Home({playlist}) {
     username: "",
     title: '',
     artist: '',
-    url: ''
+    uri: "spotify:track:4cOdK2wGLETKBW3PvgPWqT"
   })
   const [currentUser, setCurrentUser] = useState(null)
   const [song, setSong] = useState(null)

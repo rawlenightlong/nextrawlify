@@ -18,7 +18,7 @@ const spotifyApi = new SpotifyWebApi({
 
 
 
-export default function Dashboard({code, playlist}) {
+export default function Dashboard({code, playlist, refreshData}) {
     // Receieve the access token from Spotify
     const accessToken = Auth(code)
 
@@ -107,9 +107,12 @@ export default function Dashboard({code, playlist}) {
 
   return (
     <div className="page">
+        <div className='header'>
+            <a href="http://accounts.spotify.com/logout">Logout</a>
+        </div>
         <Playlist playlist={playlist} addSong={addSong}/>
         <div className="spotify">
-            <form>
+            <form className="searchBar">
                 <input type="search" placeholder="search songs" value={search} onChange={e => setSearch(e.target.value)} />
                 <div className='trackResults'>
                     {searchResults.map(track => (
@@ -117,7 +120,7 @@ export default function Dashboard({code, playlist}) {
                     ))}
                 </div>
             </form>
-            <div>
+            <div className="player">
                 {playingTrack || song ? renderPlayer() : null}
             </div>
         </div>
