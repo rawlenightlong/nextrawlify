@@ -7,6 +7,7 @@ import axios from 'axios'
 import Playlist from './Playlist'
 import TrackSearchResult from './TrackSearchResult'
 import Player from './Player'
+import ShowEditPage from './ShowEditPage'
 
 const CLIENT_ID = process.env.CLIENT_ID
 const CLIENT_SECRET = process.env.CLIENT_SECRET
@@ -29,7 +30,7 @@ export default function Dashboard({code, playlist, refreshData}) {
     }, [accessToken])
 
     // Destructure state variables / functions from Context Provider
-    const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, setPlaylist, search, searchResults, setSearchResults, song, setSong, play, setPlay} = useContext(stateContext)
+    const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, setPlaylist, search, searchResults, setSearchResults, song, setSong, play, setPlay, songInfo, showEdit, setShowEdit} = useContext(stateContext)
  
     // Fetch current user to render current user's playlist
     async function fetchUser(){
@@ -104,23 +105,37 @@ export default function Dashboard({code, playlist, refreshData}) {
         return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : null} play={play} setPlay={setPlay}/></div>
     }
 
+    // Toggle to show edit page
+    const showEditPage = () => {
+        return <ShowEditPage setShowEdit={setShowEdit} songInfo={songInfo}/>
+    }
+
+    // Toggle to show hide page
+    const hideEditPage = () => {
+        return null
+    }
+
 
   return (
-    <div className="page">
-        <div className='header'>
+    <div id="page">
+        <div id='header'>
             <a href="http://accounts.spotify.com/logout">Logout</a>
         </div>
+
         <Playlist playlist={playlist} addSong={addSong}/>
-        <div className="spotify">
-            <form className="searchBar">
+
+        {showEdit ? showEditPage() : hideEditPage()}
+
+        <div id="spotify">
+            <form id="searchBar">
                 <input type="search" placeholder="search songs" value={search} onChange={e => setSearch(e.target.value)} />
-                <div className='trackResults'>
+                <div id='trackResults'>
                     {searchResults.map(track => (
                         <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                     ))}
                 </div>
             </form>
-            <div className="player">
+            <div id="player">
                 {playingTrack || song ? renderPlayer() : null}
             </div>
         </div>
