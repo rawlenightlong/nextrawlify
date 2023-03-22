@@ -19,7 +19,7 @@ const spotifyApi = new SpotifyWebApi({
 
 
 
-export default function Dashboard({code, playlist, refreshData}) {
+export default function Dashboard({code}) {
     // Receieve the access token from Spotify
     const accessToken = Auth(code)
 
@@ -30,7 +30,7 @@ export default function Dashboard({code, playlist, refreshData}) {
     }, [accessToken])
 
     // Destructure state variables / functions from Context Provider
-    const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, setPlaylist, search, searchResults, setSearchResults, song, setSong, play, setPlay, songInfo, showEdit, setShowEdit} = useContext(stateContext)
+    const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, search, searchResults, setSearchResults, song, setSong, play, setPlay, songInfo, showEdit, setShowEdit} = useContext(stateContext)
  
     // Fetch current user to render current user's playlist
     async function fetchUser(){
@@ -115,6 +115,22 @@ export default function Dashboard({code, playlist, refreshData}) {
         return null
     }
 
+    // initiate playlist state
+    const [playlist, setPlaylist] = useState(null)
+
+    // Load playlist
+    useEffect(() => {
+        axios("https://rawlifyplaylist.onrender.com/spotsongs")
+        .then(response => {
+            setPlaylist(response.data)
+        })
+    }, [playlist])
+
+    // Render "loading..." screen
+    function playlistLoading(){
+        return <div>Loading...</div>
+    }
+
 
   return (
     <div id="page">
@@ -122,7 +138,7 @@ export default function Dashboard({code, playlist, refreshData}) {
             <a href="http://accounts.spotify.com/logout">Logout</a>
         </div>
 
-        <Playlist playlist={playlist} addSong={addSong}/>
+       {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
         {showEdit ? showEditPage() : hideEditPage()}
 

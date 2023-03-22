@@ -10,6 +10,8 @@ import { stateContext } from '@/pages'
 
 export default function Playlist({playlist, addSong}){
 
+    console.log(playlist)
+
     async function deleteSong(song){
         await axios.delete(`https://rawlifyplaylist.onrender.com/spotsongs/${song._id}`)
     }
@@ -49,7 +51,7 @@ return (<>
                             setShowEdit(true)
                         }
                     }}>Show/Edit</button>
-                    
+
                     </div>
 
                 </>)

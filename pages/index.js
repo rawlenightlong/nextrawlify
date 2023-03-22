@@ -52,16 +52,8 @@ export default function Home({playlist}) {
         setSongInfo: setSongInfo
       }
     }>
-      {code ? <Dashboard code={code} playlist={playlist}/> : <Login/>}
+      {code ? <Dashboard code={code} /> : <Login/>}
       </stateContext.Provider>
   )
 }
-export async function getServerSideProps(){
-  const response = await fetch("https://rawlifyplaylist.onrender.com/spotsongs")
-  const data = await response.json()
-  return {
-    props: {
-      playlist: data
-    }
-  }
-}
+
