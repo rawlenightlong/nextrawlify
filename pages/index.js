@@ -3,6 +3,7 @@ import Dashboard from "@/components/Dashboard";
 import { Inter } from 'next/font/google'
 import {useSearchParams} from "next/navigation"
 import { createContext, useState } from "react";
+import {BsFillPlay} from 'react-icons/bs'
 
 
 export const stateContext = createContext()

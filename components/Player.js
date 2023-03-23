@@ -18,6 +18,17 @@ export default function Player({accessToken, trackUri, songUrl, setPlay, play}){
         if (!state.isPlaying) setPlay(false)
     }}
     play={play}
+    styles={{
+        bgColor: "black",
+        trackArtistColor: "white",
+        trackNameColor: "white",
+        loaderColor: "white",
+        activeColor: "orange",
+        sliderColor: "white",
+        color: "white",
+        sliderHandleColor: "purple",
+        sliderTrackColor: "lightblue"
+    }}
     uris={trackUri ? [trackUri] : [songUrl]}
     />
     
