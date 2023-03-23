@@ -13,7 +13,7 @@ export default function Player({accessToken, trackUri, songUrl, setPlay, play}){
     
     <SpotifyPlayer
     token={accessToken}
-    showSaveIconc
+    showSaveIcon
     callback={state => {
         if (!state.isPlaying) setPlay(false)
     }}
