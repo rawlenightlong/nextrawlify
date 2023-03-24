@@ -135,19 +135,22 @@ export default function Dashboard({code}) {
 
   return (
     <div id="page" className="h-screen">
-        <header id='header' className="flex justify-between mx-2 mb-2">
+        <header id='header' className="flex justify-around mx-5 h-20 items-center text-white">
             <a href="http://accounts.spotify.com/logout">Logout</a>
-            <p>Logged in as {currentUser}</p>
+            <h1>Welcome to Rawlify</h1>
+            <p>Logged In As: {currentUser}</p>
+            
         </header>
-        <div id="playlistAndPlayer" className="flex px-5 h-5/6">
+        <hr className="mb-24"></hr>
+        <div id="playlistAndPlayer" className="flex px-5 h-2/3 justify-around">
             {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
             {showEdit ? showEditPage() : hideEditPage()}
 
-            <div id="spotify" className="w-screen bg-green-300 flex flex-col justify-between h-full">
-                <form id="searchBar" className="h-96">
-                    <input type="search" placeholder="search songs" value={search} onChange={e => setSearch(e.target.value)} className="w-full bg-gray-800 text-red-600"/>
-                    <div id='trackResults' className="overflow-auto h-full">
+            <div id="spotify" className="w-2/3 bg-green-300 flex flex-col justify-between h-full">
+                <form id="searchBar" className="h-full">
+                    <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full border-stone-200 bg-neutral-900 text-red-600"/>
+                    <div id='trackResults' className="overflow-auto p-2 bg-blue-500">
                         {searchResults.map(track => (
                             <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                         ))}

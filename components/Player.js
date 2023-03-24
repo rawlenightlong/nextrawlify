@@ -19,7 +19,7 @@ export default function Player({accessToken, trackUri, songUrl, setPlay, play}){
     }}
     play={play}
     styles={{
-        bgColor: "black",
+        bgColor: "grey",
         trackArtistColor: "white",
         trackNameColor: "white",
         loaderColor: "white",

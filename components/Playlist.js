@@ -15,29 +15,32 @@ export default function Playlist({playlist, addSong}){
 return (<>
 
 
-<div className="bg-gray-500 overflow-auto scrollbar-hide">
-    <button onClick={addSong} className="bg-yellow-200">Add Song to Playlist</button>
-    <h1>Playlist</h1>
+<div className="bg-black scrollbar-hide text-center justify-center items-center w-96" id="playlist">
     <div>
+        <button onClick={addSong} className="bg-yellow-200">Add Song</button>
+        <h1 className="text-center text-white">Playlist</h1>
+    </div>
+    <hr className="my-2 w-36 text-center justify-items-center justify-center mx-auto"></hr>
+    <div className="text-center justify-center items-center h-fit overflow-auto">
         {playlist.map((song, index) => {
             if (currentUser === song.username) {
 
                 return (<>
                 
-                    <div key={index} id="songinfo" className="bg-orange-400 my-2 px-2"> 
+                    <div key={index} id="songinfo" className="bg-black my-3 mx-auto px-2 py-1 text-center w-52 justify-center items-center rounded-md border-1 border-white"> 
                         <div key={song._id}>
-                            <h4 key={song.title} className="">{song.title}</h4>
-                            <p key={song.artist}>{song.artist}</p>
+                            <h4 key={song.title} className="text-gray-300" id="songtitle">{song.title}</h4>
+                            <p key={song.artist} className="text-gray-400" id="songartist">{song.artist}</p>
                         </div>
-                        <div id="buttons" className="">
+                        <div id="buttons" className=" flex justify-center">
                             <button onClick={() => {
                             setSong(song)
                             setPlayingTrack(null)
-                                }} className="mx-1 text-xl">
+                                }} className="mx-2 text-xl text-green-500" id='playbutton'>
                                     <BsFillPlayFill/>
                             </button>
 
-                            <button onClick={() => {deleteSong(song)}} className="mx-2 text-xl"><BsTrash/></button>
+                            <button onClick={() => {deleteSong(song)}} className=" mx-2 text-xl text-red-600" id="trashcan"><BsTrash/></button>
 
                             <button onClick={() => {
                                 setSongInfo(song)
@@ -46,7 +49,7 @@ return (<>
                                     }else {
                                         setShowEdit(true)
                                     }
-                                }} className="mx-3 text-xl"><BsPencil/>
+                                }} className="mx-3 text-xl text-yellow-600" id="pencil"><BsPencil/>
                             </button>
                         </div>
                     </div>

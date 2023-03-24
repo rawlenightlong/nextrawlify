@@ -7,7 +7,7 @@ const authLogin = "https://accounts.spotify.com/authorize?client_id=0f1031b22d46
 export default function Login(){
     return (<>
     <div style={{minHeight: "100vh"}}>
-        <button><a href={authLogin}>Login with Spotify</a></button>
+        <button><a href={authLogin} className="text-white">Login with Spotify</a></button>
     </div>
     
     </>)
