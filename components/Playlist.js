@@ -17,10 +17,10 @@ return (<>
 
 <div className="bg-black text-center justify-center items-center w-96 " id="playlist">
 
-    <header className="flex justify-between items-center px-5">
+    <header className="px-5">
         
         <h1 className="text-center text-white">Playlist</h1>
-        <button onClick={addSong} className="bg-green-200 my-4 rounded-full">Add Song</button>
+        <button onClick={addSong} className="bg-blue-300 my-4 w-32 rounded-full">Add Song</button>
     </header>
 
     <hr className="my-2 w-36 text-center justify-items-center justify-center mx-auto"></hr>
@@ -36,15 +36,15 @@ return (<>
                             <h4 key={song.title} className="text-gray-300" id="songtitle">{song.title}</h4>
                             <p key={song.artist} className="text-gray-400" id="songartist">{song.artist}</p>
                         </div>
-                        <div id="buttons" className=" flex justify-center">
+                        <div id="buttons" className=" flex justify-center items-center ">
                             <button onClick={() => {
                             setSong(song)
                             setPlayingTrack(null)
-                                }} className="mx-2 text-xl text-green-500" id='playbutton'>
+                                }} className=" mx-3 text-xl text-green-500" id='playbutton'>
                                     <BsFillPlayFill/>
                             </button>
 
-                            <button onClick={() => {deleteSong(song)}} className=" mx-2 text-xl text-red-600" id="trashcan"><BsTrash/></button>
+                            <button onClick={() => {deleteSong(song)}} className="  text-xl text-red-600" id="trashcan"><BsTrash/></button>
 
                             <button onClick={() => {
                                 setSongInfo(song)
@@ -53,7 +53,7 @@ return (<>
                                     }else {
                                         setShowEdit(true)
                                     }
-                                }} className="mx-3 text-xl text-yellow-600" id="pencil"><BsPencil/>
+                                }} className=" mx-3 text-xl text-yellow-600" id="pencil"><BsPencil/>
                             </button>
                         </div>
                     </div>

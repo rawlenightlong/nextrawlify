@@ -147,11 +147,11 @@ export default function Dashboard({code}) {
 
             {showEdit ? showEditPage() : hideEditPage()}
 
-            <div id="spotify" className="w-1/2 flex flex-col justify-between h-full bg-blue-600">
+            <div id="spotify" className="w-1/2 flex flex-col justify-between h-full">
 
                 <form id="searchBar" className="h-full">
-                    <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full px-3 h-16 border-stone-200 bg-neutral-900 text-red-600"/>
-                    <div id='trackResults' className="overflow-auto p-2 bg-yellow-400">
+                    <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full px-3 h-16 border-stone-200 bg-neutral-900 text-white"/>
+                    <div id='trackResults' className="overflow-auto p-2 bg-blue-400">
                         {searchResults.map(track => (
                             <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                         ))}

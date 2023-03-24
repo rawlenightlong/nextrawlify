@@ -63,8 +63,12 @@ transition-duration: 1s;
     color: white
 }
 
+
 #showpage{
+    text-align: center;
+    padding: 15px;
     height: 40vh;
+    width: 20vw;
     background-color: black;
     border: solid 1px white;
     border-radius: 20px;
