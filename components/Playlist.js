@@ -15,12 +15,16 @@ export default function Playlist({playlist, addSong}){
 return (<>
 
 
-<div className="bg-black scrollbar-hide text-center justify-center items-center w-96" id="playlist">
-    <div>
-        <button onClick={addSong} className="bg-yellow-200">Add Song</button>
+<div className="bg-black text-center justify-center items-center w-96 " id="playlist">
+
+    <header className="flex justify-between items-center px-5">
+        
         <h1 className="text-center text-white">Playlist</h1>
-    </div>
+        <button onClick={addSong} className="bg-green-200 my-4 rounded-full">Add Song</button>
+    </header>
+
     <hr className="my-2 w-36 text-center justify-items-center justify-center mx-auto"></hr>
+
     <div className="text-center justify-center items-center h-fit overflow-auto">
         {playlist.map((song, index) => {
             if (currentUser === song.username) {

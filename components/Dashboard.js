@@ -134,33 +134,37 @@ export default function Dashboard({code}) {
 
 
   return (
-    <div id="page" className="h-screen">
-        <header id='header' className="flex justify-around mx-5 h-20 items-center text-white">
+    <div id="page" className="">
+        <header id='header' className="flex justify-around  items-center text-white">
             <a href="http://accounts.spotify.com/logout">Logout</a>
             <h1>Welcome to Rawlify</h1>
             <p>Logged In As: {currentUser}</p>
             
         </header>
-        <hr className="mb-24"></hr>
-        <div id="playlistAndPlayer" className="flex px-5 h-2/3 justify-around">
+        <hr className="m-5"></hr>
+        <div id="playlistAndPlayer" className="flex px-10  justify-between items-center ">
             {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
             {showEdit ? showEditPage() : hideEditPage()}
 
-            <div id="spotify" className="w-2/3 bg-green-300 flex flex-col justify-between h-full">
+            <div id="spotify" className="w-1/2 flex flex-col justify-between h-full bg-blue-600">
+
                 <form id="searchBar" className="h-full">
-                    <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full border-stone-200 bg-neutral-900 text-red-600"/>
-                    <div id='trackResults' className="overflow-auto p-2 bg-blue-500">
+                    <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full px-3 h-16 border-stone-200 bg-neutral-900 text-red-600"/>
+                    <div id='trackResults' className="overflow-auto p-2 bg-yellow-400">
                         {searchResults.map(track => (
                             <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                         ))}
                     </div>
                 </form>
-                <div id="player" className="bg-yellow-200 justify-between">
-                    {playingTrack || song ? renderPlayer() : null}
-                </div>
             </div>
+
+
+
         </div>
+            <div id="player" className="bg-yellow-200">
+                    {playingTrack || song ? renderPlayer() : null}
+            </div>
     </div>
   )
 }

@@ -5,20 +5,35 @@
 
 body {
     background-color: black;
+    scroll-behavior: smooth;
+}
+
+#header{
+    height: 8vh;
+    background-image: linear-gradient(to bottom right, rgb(36, 135, 233), rgb(228, 189, 189))
 }
 
 #trackResults {
-    height: 32.6rem;
+    height: 40vh;
 }
 
 #search {
     border-color: white;
-    border: 2px solid white
+    border: .5px solid white
+}
+
+#playlistAndPlayer{
+    height:70vh;
+    
 }
 
 #songinfo{
     transition: .05s;
     opacity: .7;
+}
+
+#showartist, #showtitle {
+    color: black
 }
 
 #songinfo:hover{
@@ -29,9 +44,13 @@ transition-duration: 1s;
 #songinfo:hover{
     transform: scale(1.08);
     opacity: 1;
-    border: solid .5px white
+    border: solid .5px white;
 }
-
+#player{
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
 #playbutton:hover{
     color: white;
 }
@@ -44,8 +63,19 @@ transition-duration: 1s;
     color: white
 }
 
+#showpage{
+    height: 40vh;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 20px;
+    color: white;
+}
+
 /* hide scrollbar but allow scrolling */
 #playlist {
+    height: 60vh;
+    border: solid 1px white;
+    border-radius: 20px;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
@@ -56,6 +86,7 @@ transition-duration: 1s;
 }
 
 #trackResults {
+    height: 60vh;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 

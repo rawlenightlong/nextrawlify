@@ -16,16 +16,18 @@ export default function ShowEditPage({setShowEdit, songInfo}) {
     return (<>
     
     
-    <div>
-    <button onClick={() => {
-        setShowEdit(false)
-        }}>
-        X
-    </button>
+    <div className="bg-white p-2 w-fit" id="showpage">
+        <button onClick={() => {
+            setShowEdit(false)
+                }}>
+            X
+        </button>
+
     <h5>Song Info</h5>
+        <div></div>
         <form>
-        Artist: <input type='text' name="artist" defaultValue={updateArtist} required onChange={(e) => {setUpdateArtist(e.target.value)}}></input><br></br>
-        Title: <input type='text' name="artist" defaultValue={updateTitle} required onChange={(e) => {setUpdateTitle(e.target.value)}}></input><br></br>
+        Artist: <input type='text' id="showartist" name="artist" defaultValue={updateArtist} required onChange={(e) => {setUpdateArtist(e.target.value)}}></input><br></br>
+        Title: <input type='text' id="showtitle"name="artist" defaultValue={updateTitle} required onChange={(e) => {setUpdateTitle(e.target.value)}}></input><br></br>
         </form>
     <button
     onClick={() => {
