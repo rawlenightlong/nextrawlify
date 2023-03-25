@@ -12,7 +12,7 @@ export default function Login(){
     <div  className="">
 
         <header id="header">
-            <h1 className="text-white p-5 text-center h-fit">Premium Spotify account required. Don't have one? Sign up <a href="https://www.spotify.com/us/premium/?utm_source=us-en_brand_contextual_text&utm_medium=paidsearch&utm_campaign=alwayson_ucanz_us_performancemarketing_highsubintent_brand+contextual+text+exact+us-en+google&gclid=Cj0KCQjwt_qgBhDFARIsABcDjOf3FYeZLbCNi5ck9XxOeXjvH1s3GzfBQI2WLKhcjWBnb5dMB9K7jzYaAgPfEALw_wcB&gclsrc=aw.ds" target="_blank">here</a>!</h1>
+            <h1 className="text-white p-5 text-center h-fit">Premium Spotify account required. Sign up <a href="https://www.spotify.com/us/premium/?utm_source=us-en_brand_contextual_text&utm_medium=paidsearch&utm_campaign=alwayson_ucanz_us_performancemarketing_highsubintent_brand+contextual+text+exact+us-en+google&gclid=Cj0KCQjwt_qgBhDFARIsABcDjOf3FYeZLbCNi5ck9XxOeXjvH1s3GzfBQI2WLKhcjWBnb5dMB9K7jzYaAgPfEALw_wcB&gclsrc=aw.ds" target="_blank">here</a>!</h1>
         </header>
 
         <div className="items-center justify-center text-center">
