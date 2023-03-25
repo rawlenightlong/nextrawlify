@@ -8,7 +8,7 @@ export default function handler(req, res){
     const code = req.body.code
 
     const spotifyApi = new SpotifyWebApi({
-        redirectUri: "http://localhost:3000",
+        redirectUri: "https://nextrawlify.vercel.app/",
         clientId: clientID,
         clientSecret: clientSecret
     })
