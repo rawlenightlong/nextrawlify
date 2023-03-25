@@ -9,7 +9,7 @@ export default function Auth(code){
 
 
     useEffect(() => {
-        axios.post("https://nextrawlify.vercel.app/api/login", {
+        axios.post("https://rawlify.vercel.app/api/login", {
             code,
         }).then(res => {
             setAccessToken(res.data.accessToken)
@@ -27,7 +27,7 @@ export default function Auth(code){
 
         const interval = setInterval(() => {
 
-        axios.post("https://nextrawlify.vercel.app/api/refresh",  {refreshToken})
+        axios.post("https://rawlify.vercel.app/api/refresh",  {refreshToken})
         .then(res => {
             setAccessToken(res.data.accessToken)
             setExpiresIn(res.data.expiresIn)
