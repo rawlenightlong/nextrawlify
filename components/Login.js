@@ -1,5 +1,6 @@
-import {Link} from "next/link"
-import undraw from "../public/undraw.png"
+import Image from "next/image"
+
+
 
 const authLogin = "https://accounts.spotify.com/authorize?client_id=0f1031b22d464246bd89f46eea042924&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state%20user-follow-modify%20user-follow-modify"
 
@@ -15,7 +16,7 @@ export default function Login(){
         </header>
 
         <div className="items-center justify-center text-center">
-            <img src="https://i.imgur.com/DOzqyo9.png" alt="logo" className="rounded m-12 items-center justify-center text-center mx-auto" />
+            <Image src="https://i.imgur.com/DOzqyo9.png" alt="logo" width="600" height="400" className="rounded m-12 items-center justify-center text-center mx-auto" />
 
             {/* <button className="text-white font-bold py-2 px-4 rounded" id="login">
                 <a href={authLogin} className="text-white justify-center items-center m-12">Login with Spotify</a>

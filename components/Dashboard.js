@@ -34,19 +34,29 @@ export default function Dashboard({code}) {
     const {currentUser, setCurrentUser, setPlayingTrack, setSearch, playingTrack, search, searchResults, setSearchResults, song, setSong, play, setPlay, songInfo, showEdit, setShowEdit} = useContext(stateContext)
  
     // Fetch current user to render current user's playlist
-    async function fetchUser(){
-        if (!accessToken) return
-        let response = await fetch("https://api.spotify.com/v1/me", {
-            headers: {"Authorization": `Bearer ${accessToken}`}
-        })
-        let data = await response.json()
-        setCurrentUser(data.display_name)
-        console.log(currentUser)
-    }
+    // async function fetchUser(){
+    //     if (!accessToken) return
+    //     let response = await fetch("https://api.spotify.com/v1/me", {
+    //         headers: {"Authorization": `Bearer ${accessToken}`}
+    //     })
+    //     let data = await response.json()
+    //     setCurrentUser(data.display_name)
+    //     console.log(currentUser)
+    // }
 
     // Fetch current user whenever the access token or currentUser state changes
     useEffect(() => {
+        async function fetchUser(){
+            if (!accessToken) return
+            let response = await fetch("https://api.spotify.com/v1/me", {
+                headers: {"Authorization": `Bearer ${accessToken}`}
+            })
+            let data = await response.json()
+            setCurrentUser(data.display_name)
+            console.log(currentUser)
+        }
         fetchUser()
+        
     }, [accessToken, currentUser])
 
     // Set playingTrack to empty object at page load

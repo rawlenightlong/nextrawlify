@@ -4,14 +4,7 @@ import { useEffect } from 'react'
 export default function Player({accessToken, trackUri, songUrl, setPlay, play, playingTrack, song}){
     
     useEffect(() => {
-        console.log(playingTrack, song)
-        setPlay(false)
-        console.log(play)
-        console.log(playingTrack,song)
         setPlay(true)
-        console.log(play)
-        setTimeout(() => {console.log(play)}, 1000)
-        console.log(play)
     }, [song, playingTrack])
 
     if (!accessToken) return null
