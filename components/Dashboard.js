@@ -129,7 +129,7 @@ export default function Dashboard({code}) {
 
     // Render "loading..." screen
     function playlistLoading(){
-        return <div>Loading...</div>
+        return <div className="text-white">Loading...</div>
     }
 
 

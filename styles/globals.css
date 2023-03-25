@@ -63,6 +63,18 @@ transition-duration: 1s;
     color: white
 }
 
+#playlistheader{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: black;
+}
+
+#actualplaylist {
+
+    position: sticky;
+    top: 0;
+}
 
 #showpage{
     text-align: center;

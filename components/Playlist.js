@@ -17,15 +17,15 @@ return (<>
 
 <div className="bg-black text-center justify-center items-center w-96 " id="playlist">
 
-    <header className="px-5">
+    <header className="px-5" id="playlistheader">
         
-        <h1 className="text-center text-white">Playlist</h1>
+        <h1 className="text-center text-white pt-2">Playlist</h1>
         <button onClick={addSong} className="bg-blue-300 my-4 w-32 rounded-full">Add Song</button>
     </header>
 
-    <hr className="my-2 w-36 text-center justify-items-center justify-center mx-auto"></hr>
+    <hr className=" w-36 text-center justify-items-center justify-center mx-auto"></hr>
 
-    <div className="text-center justify-center items-center h-fit overflow-auto">
+    <div className="text-center justify-center items-center h-fit overflow-auto" id="actualplaylist">
         {playlist.map((song, index) => {
             if (currentUser === song.username) {
 
