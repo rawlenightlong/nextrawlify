@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import {AiOutlineClose} from "react-icons/ai"
 
 export default function ShowEditPage({setShowEdit, songInfo}) {
 
@@ -16,11 +17,14 @@ export default function ShowEditPage({setShowEdit, songInfo}) {
     return (<>
     
     
-    <div className="" id="showpage">
-        <button onClick={() => {
-            setShowEdit(false)
-                }}>
-            X
+    <div className="text-white" id="showpage">
+        <button 
+            className="mb-10 text-2xl text-white hover:text-red-600" 
+            id="exitshow" 
+            onClick={() => {
+                setShowEdit(false)
+                    }}>
+             <AiOutlineClose/>
         </button>
 
     <h5>Song Info</h5>
@@ -30,7 +34,9 @@ export default function ShowEditPage({setShowEdit, songInfo}) {
         Title : <input className="my-2 px-2 w-64 "type='text' id="showtitle"name="artist" defaultValue={updateTitle} required onChange={(e) => {setUpdateTitle(e.target.value)}}></input><br></br>
         </form>
         </div>
-    <button
+    <button 
+    id="editbutton"
+    className="bg-blue-300 my-4 w-32 rounded-full text-black"
     onClick={() => {
         updateSong(songInfo)
         setShowEdit(false)

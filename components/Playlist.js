@@ -20,7 +20,7 @@ return (<>
     <header className="px-5" id="playlistheader">
         
         <h1 className="text-center text-white pt-2">Playlist</h1>
-        <button onClick={addSong} className="bg-blue-300 my-4 w-32 rounded-full">Add Song</button>
+        <button id="addbutton" onClick={addSong} className="bg-blue-300 my-4 w-32 rounded-full">Add Song</button>
     </header>
 
     <hr className=" w-36 text-center justify-items-center justify-center mx-auto"></hr>

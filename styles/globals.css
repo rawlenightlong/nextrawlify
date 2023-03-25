@@ -13,6 +13,16 @@ body {
     background-image: linear-gradient(to bottom right, rgb(36, 135, 233), rgb(228, 189, 189))
 }
 
+#login{
+    background-color:  #57BAFF;
+}
+
+#login:hover{
+    background-color: #3f9ddf;
+}
+#addbutton:hover, #editbutton:hover{
+    background-color: #3f9ddf;
+}
 #trackResults {
     height: 40vh;
 }
@@ -24,6 +34,7 @@ body {
 
 #playlistAndPlayer{
     height:70vh;
+
     
 }
 
@@ -79,13 +90,14 @@ transition-duration: 1s;
 #showpage{
     text-align: center;
     padding: 15px;
-    height: 40vh;
+    height: 30vh;
     width: 20vw;
     background-color: black;
     border: solid 1px white;
     border-radius: 20px;
     color: white;
 }
+
 
 /* hide scrollbar but allow scrolling */
 #playlist {

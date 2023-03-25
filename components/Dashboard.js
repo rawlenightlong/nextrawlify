@@ -142,7 +142,7 @@ export default function Dashboard({code}) {
             
         </header>
         <hr className="m-5"></hr>
-        <div id="playlistAndPlayer" className="flex px-10  justify-between items-center ">
+        <div id="playlistAndPlayer" className="flex px-10  justify-between items-center w-screen ">
             {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
             {showEdit ? showEditPage() : hideEditPage()}
@@ -151,7 +151,7 @@ export default function Dashboard({code}) {
 
                 <form id="searchBar" className="h-full">
                     <input type="search" placeholder="Search for a Song or Artist..." value={search} onChange={e => setSearch(e.target.value)} id="search" className="w-full px-3 h-16 border-stone-200 bg-neutral-900 text-white"/>
-                    <div id='trackResults' className="overflow-auto p-2 bg-blue-400">
+                    <div id='trackResults' className="overflow-auto p-2">
                         {searchResults.map(track => (
                             <TrackSearchResult track={track} key={track.uri} chooseTrack={chooseTrack}/>
                         ))}
