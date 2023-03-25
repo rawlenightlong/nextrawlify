@@ -62,6 +62,7 @@ export default function Dashboard({code}) {
     // Set the playingTrack and clear the search
     function chooseTrack(track){
         setPlayingTrack(track)
+        setSong(null)
         setSearch("")
     }
 
@@ -103,7 +104,7 @@ export default function Dashboard({code}) {
 
     // Render player if a song is chosen
     const renderPlayer = () => {
-        return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : null} play={play} setPlay={setPlay}/></div>
+        return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : null} play={play} setPlay={setPlay} song={song} playingTrack={playingTrack}/></div>
     }
 
     // Toggle to show edit page

@@ -19,7 +19,7 @@ export default function ShowEditPage({setShowEdit, songInfo}) {
     
     <div className="text-white" id="showpage">
         <button 
-            className="mb-10 text-2xl text-white hover:text-red-600" 
+            className="mb-4 text-2xl text-red-600 hover:text-white" 
             id="exitshow" 
             onClick={() => {
                 setShowEdit(false)

@@ -29,7 +29,13 @@ body {
 
 #search {
     border-color: white;
-    border: .5px solid white
+    border: .5px solid white;
+    border-radius: 50px;
+}
+
+#searchresults:hover{
+    border: solid 1px white;
+    border-radius: 10px;
 }
 
 #playlistAndPlayer{
@@ -90,7 +96,7 @@ transition-duration: 1s;
 #showpage{
     text-align: center;
     padding: 15px;
-    height: 30vh;
+    height: fit-content;
     width: 20vw;
     background-color: black;
     border: solid 1px white;
@@ -98,6 +104,12 @@ transition-duration: 1s;
     color: white;
 }
 
+#showpage input{
+    color: white;
+    background-color: black;
+    border: .5px solid white;
+    border-radius: 10px;
+}
 
 /* hide scrollbar but allow scrolling */
 #playlist {

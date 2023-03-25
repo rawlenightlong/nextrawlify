@@ -10,7 +10,7 @@ export default function Playlist({playlist, addSong}){
         await axios.delete(`https://rawlifyplaylist.onrender.com/spotsongs/${song._id}`)
     }
 
-    const {setPlayingTrack, setSong, showEdit, currentUser, setShowEdit, setSongInfo} = useContext(stateContext)
+    const {setPlayingTrack, setSong, showEdit, currentUser, setShowEdit, setSongInfo, setPlay, play} = useContext(stateContext)
 
 return (<>
 
@@ -38,8 +38,10 @@ return (<>
                         </div>
                         <div id="buttons" className=" flex justify-center items-center ">
                             <button onClick={() => {
-                            setSong(song)
-                            setPlayingTrack(null)
+                                setPlay(false)
+                                setSong(song)
+                                setPlayingTrack(null)
+
                                 }} className=" mx-3 text-xl text-green-500" id='playbutton'>
                                     <BsFillPlayFill/>
                             </button>
