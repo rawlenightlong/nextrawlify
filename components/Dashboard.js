@@ -146,13 +146,13 @@ export default function Dashboard({code}) {
 
   return (
     <div id="page" className="">
-        <header id='header' className="flex justify-around  items-center text-white">
-            <a href="http://accounts.spotify.com/logout">Logout</a>
+        <header id='header' className="flex justify-around items-center text-white ">
+            <div id="logout"><a href="http://accounts.spotify.com/logout">Logout</a></div>
             <h1>Welcome to Rawlify</h1>
             <p>Logged In As: {currentUser}</p>
             
         </header>
-        <hr className="m-5"></hr>
+        <hr id="pageline" className="m-3"></hr>
         <div id="playlistAndPlayer" className="flex px-10  justify-between items-center w-screen ">
             {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
