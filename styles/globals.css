@@ -285,7 +285,9 @@ transition-duration: 1s;
         width: 70%
     }
     #searchresults {
-        font-size: 70%
+        font-size: 70%;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 
 }
