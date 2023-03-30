@@ -18,9 +18,7 @@ export default function ShowEditPage({setShowEdit, songInfo}) {
     
 
     <div className="text-white" id="showpage">
-        <div className="flex" id="overlay" onClick={() => {
-                setShowEdit(false)
-                    }}>    
+        <div className="flex" id="overlay" >    
                     <div id="modal">
     
                     <button 
