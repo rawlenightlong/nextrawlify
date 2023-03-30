@@ -284,10 +284,15 @@ transition-duration: 1s;
     #modal {
         width: 70%
     }
+
 }
 
-@media all and (min-width: 375px) and (max-width: 448px){
+@media all and (min-width: 374px) and (max-width: 448px){
     #modal{
         width: 80%
     }
+    #header{
+        font-size: 60%
+    }
+
 }
