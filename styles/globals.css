@@ -284,6 +284,9 @@ transition-duration: 1s;
     #modal {
         width: 70%
     }
+    #searchresults {
+        font-size: 70%
+    }
 
 }
 
