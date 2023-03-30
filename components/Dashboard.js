@@ -110,6 +110,7 @@ export default function Dashboard({code}) {
             artist: playingTrack.artist,
             url: playingTrack.uri
         })
+        alert("Song Added!")
     }
 
     // Render player if a song is chosen
@@ -145,6 +146,7 @@ export default function Dashboard({code}) {
 
 
   return (
+    
     <div id="page" className="">
         <header id='header' className="flex justify-around items-center text-white ">
             <div id="logout"><a href="http://accounts.spotify.com/logout">Logout</a></div>
@@ -153,10 +155,11 @@ export default function Dashboard({code}) {
             
         </header>
         <hr id="pageline" className="m-3"></hr>
-        <div id="playlistAndPlayer" className="flex px-10  justify-between items-center w-screen ">
+        
+        <div id="playlistAndPlayer" className="flex px-10  justify-around items-center w-screen ">
             {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
 
-            {showEdit ? showEditPage() : hideEditPage()}
+            
 
             <div id="spotify" className="w-1/2 flex flex-col justify-between h-full">
 
@@ -173,6 +176,8 @@ export default function Dashboard({code}) {
 
 
         </div>
+        {showEdit ? showEditPage() : hideEditPage()}
+        
             <div id="player" className="bg-yellow-200">
                     {playingTrack || song ? renderPlayer() : null}
             </div>

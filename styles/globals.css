@@ -11,8 +11,6 @@ body {
     height: 60vh;
 }
 
-
-
 #header{
     height: 8vh;
     background-image: linear-gradient(to bottom right, rgb(36, 135, 233), rgb(228, 189, 189))
@@ -99,21 +97,8 @@ transition-duration: 1s;
 }
 
 #showpage{
-    text-align: center;
-    padding: 15px;
-    height: fit-content;
-    width: 20vw;
-    background-color: black;
-    border: solid 1px white;
-    border-radius: 20px;
-    color: white;
-}
 
-#showpage input{
-    color: white;
-    background-color: black;
-    border: .5px solid white;
-    border-radius: 10px;
+    z-index: 100;
 }
 
 
@@ -140,6 +125,57 @@ transition-duration: 1s;
 #trackResults::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
+#modal{
+    text-align: center;
+    padding: 15px;
+    height: fit-content;
+    width: 20vw;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 20px;
+    color: white;
+    /* margin-top: 17%;
+    margin-left: 40%; */
+    align-self: center;
+    margin: auto;
+    z-index: 100;
+}
+
+#modal input{
+    color: white;
+    background-color: black;
+    border: .5px solid white;
+    border-radius: 10px;
+    width: 80%;
+}
+
+#editbutton {
+    width: 50%
+}
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: rgba(49, 49, 49, .8);
+    z-index: 1
+}
+
+@media all and (max-width: 1455px){
+#modal {
+    width: 25%;
+}
+
+@media all and (max-width: 1162px) {
+    #modal{
+        width: 30%
+    }
+}
+
+}
 
 @media all and (max-width: 1000px) {
 
@@ -161,8 +197,13 @@ transition-duration: 1s;
         margin: 20px;
 
     }
+
+    #modal {
+        width: 40%;
+    }
     
     #playlistAndPlayer {
+        height: 80%;
         display: block;
         text-align: center;
         justify-content: center;
@@ -170,13 +211,7 @@ transition-duration: 1s;
         padding: 0;
         width: 90vw;
     }
-    #showpage{
-    width: 75vw;
-    margin: auto;
-    height: 26vh;
-    margin-bottom: 1vh;
-    
-    }
+
     #playlist{
         width: 75vw;
         height: 30vh;
@@ -203,20 +238,56 @@ transition-duration: 1s;
 
     }
 
+    #modal {
+        width: 30vw;
+        
+    }
+
     #spotify {
         margin: auto;
         width: 90vw;
-        height: 30vh;
+        height: 40vh;
     }
 
     #searchBar{
-        height: 30vh;
+        height: 50vh;
 
     }
     
     #searchresults{
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        margin: 10px;
+        height: 30%
+
     }
 
     }
+
+@media all and (max-width: 976px) {
+    #modal {
+        width: 40%
+    }
+}
+
+@media all and (max-width: 767px) {
+
+}
+
+@media all and (max-width: 727px){
+    #modal {
+        width: 65%
+    }
+}
+
+@media all and (max-width: 448px) {
+    #modal {
+        width: 70%
+    }
+}
+
+@media all and (min-width: 375px) and (max-width: 448px){
+    #modal{
+        width: 80%
+    }
+}
