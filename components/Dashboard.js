@@ -73,8 +73,11 @@ export default function Dashboard({code}) {
     function chooseTrack(track){
         setPlayingTrack(track)
         setSong(null)
+        setNextSong([])
         setSearch("")
     }
+
+    const [nextSong, setNextSong] = useState([])
 
     // Song search
     useEffect(() => {
@@ -115,7 +118,7 @@ export default function Dashboard({code}) {
 
     // Render player if a song is chosen
     const renderPlayer = () => {
-        return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : null} play={play} setPlay={setPlay} song={song} playingTrack={playingTrack}/></div>
+        return <div><Player accessToken={accessToken} trackUri={playingTrack?.uri} songUrl={song?.url ? song.url : nextSong} play={play} setPlay={setPlay} song={song} playingTrack={playingTrack} nextSong={nextSong}/></div>
     }
 
     // Toggle to show edit page
@@ -157,7 +160,7 @@ export default function Dashboard({code}) {
         <hr id="pageline" className="m-3"></hr>
         
         <div id="playlistAndPlayer" className="flex px-10  justify-around items-center w-screen ">
-            {playlist ? <Playlist playlist={playlist} addSong={addSong}/> : playlistLoading()}
+            {playlist ? <Playlist playlist={playlist} addSong={addSong} setNextSong={setNextSong} nextSong={nextSong}/> : playlistLoading()}
 
             
 
@@ -179,7 +182,7 @@ export default function Dashboard({code}) {
         {showEdit ? showEditPage() : hideEditPage()}
         
             <div id="player" className="bg-yellow-200">
-                    {playingTrack || song ? renderPlayer() : null}
+                    {playingTrack || song || nextSong ? renderPlayer() : null}
             </div>
     </div>
   )

@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useContext } from 'react'
 import { stateContext } from '@/pages'
-import {BsFillPlayFill, BsPauseFill, BsTrash, BsPencil} from "react-icons/bs"
+import {BsFillPlayFill, BsTrash, BsPencil} from "react-icons/bs"
+import {AiOutlinePlus} from "react-icons/ai"
 
 
-export default function Playlist({playlist, addSong}){
+export default function Playlist({playlist, addSong, nextSong, setNextSong}){
 
     async function deleteSong(song){
         await axios.delete(`https://rawlifyplaylist.onrender.com/spotsongs/${song._id}`)
@@ -38,9 +39,11 @@ return (<>
                         </div>
                         <div id="buttons" className=" flex justify-center items-center ">
                             <button onClick={() => {
-                                setPlay(false)
-                                setSong(song)
                                 setPlayingTrack(null)
+                                setPlay(false)
+                                setNextSong([])
+                                setSong(song)
+                                
 
                                 }} className=" mx-3 text-xl text-green-500" id='playbutton'>
                                     <BsFillPlayFill/>
@@ -56,6 +59,17 @@ return (<>
                                         setShowEdit(true)
                                     }
                                 }} className=" mx-3 text-xl text-yellow-600" id="pencil"><BsPencil/>
+                            </button>
+                            <button onClick={() => {
+                                setNextSong([...nextSong, song.url])
+                                console.log(nextSong)
+                                setPlayingTrack(null)
+                                setSong(null)
+                                alert(`${song.title} added to queue!`)
+                                
+
+                                }} className="text-blue-400 hover:text-white">
+                                <AiOutlinePlus/>
                             </button>
                         </div>
                     </div>
