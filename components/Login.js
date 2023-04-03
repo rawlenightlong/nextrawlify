@@ -28,9 +28,7 @@ export default function Login(){
             </a>
         </div>
         <div id="demovideo">
-                <video width="50%" height="50%" className="m-auto" controls>
-                <source src="../assets/demo.mp4" type="video/mp4"/>
-                </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/7GkGq2iRfiw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
     </div>
