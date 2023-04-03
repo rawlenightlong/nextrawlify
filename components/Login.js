@@ -1,4 +1,5 @@
 import Image from "next/image"
+import demo from "../assets/demo.mp4"
 
 
 
@@ -25,6 +26,11 @@ export default function Login(){
             <a href={authLogin}>
                 <button id="login" className="text-white font-bold py-2 px-4 rounded">Login with Spotify</button>
             </a>
+        </div>
+        <div id="demovideo">
+                <video width="50%" height="50%" className="m-auto">
+                <source src={demo} type="video/mp4"/>
+                </video>
         </div>
 
     </div>
