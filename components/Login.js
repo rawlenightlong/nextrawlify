@@ -28,7 +28,7 @@ export default function Login(){
             </a>
         </div>
         <div id="demovideo">
-                <video width="50%" height="50%" className="m-auto">
+                <video width="50%" height="50%" className="m-auto" controls>
                 <source src="../assets/demo.mp4" type="video/mp4"/>
                 </video>
         </div>
