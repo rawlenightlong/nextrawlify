@@ -1,5 +1,5 @@
 import Image from "next/image"
-import demo from "../assets/demo.mp4"
+
 
 
 
@@ -29,7 +29,7 @@ export default function Login(){
         </div>
         <div id="demovideo">
                 <video width="50%" height="50%" className="m-auto">
-                <source src={demo} type="video/mp4"/>
+                <source src="../assets/demo.mp4" type="video/mp4"/>
                 </video>
         </div>
 
