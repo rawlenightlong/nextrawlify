@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Rawlify
+###A Spotify streaming app and playlist creator 
 
-## Getting Started
+#### Technologies
+- Javascript
+- HTML
+- Tailwind CSS
+- Nextjs
+- Mongoose
+- Express
+- Node
+- Render
 
-First, run the development server:
+#### Deployed Link
+https://rawlify.vercel.app
+Frontend Github: www.github.com/rawlenightlong/nextrawlify
+#### Wireframes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+![model](https://i.imgur.com/l3lOT9k.png)
+![model](https://i.imgur.com/o37IhcH.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+####Frontend Components
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Index - Landing page with song cards, search function, player function, and sidebar with playlist
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Card - Individual song information cards, with embedded Spotify player
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+####Routes
+| Route  | Path  | Function  | Request Type  |
+|---|---|---|---|
+| Index  | /songs  | Display all song cards | GET  |
+| Show  | /songs/:id  | Display one song card  | GET  |
+| Create  | /songs  | Create a new song card  | POST  |
+| Update  | /songs/:id  | Update an song card  | PUT  |
+| Delete | /songs/:id  | Delete an existing song card  | DELETE  |
+| Show | /songs/playlist | Shows the currently built playlist and all its songs | GET
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The Rawlify app will pull upon the Spotify API using Spotify's own authentication mechanism and allow verified users to search Spotify's entire music library, and add their favorite songs to a user-specific playlist. Each song card will have an embedded Spotify player to play the song, and the playlist will have its own embedded player on its specific page.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+####Plan 
+1. Build a working version of the app using React. Familiarize self with the authentication proecudure and utilizing / querying the Spotify API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Get one song to play on the main page and on the show page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Get playlist addition working, and the rendering of the playlist to an embedded player
 
-## Deploy on Vercel
+4. Dive into Nextjs, and build a few basic applications utilizing this new framework. Style with Tailwind. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Re-create the app from the ground up, now in Nextjs and with the use of Tailwind for styling.
